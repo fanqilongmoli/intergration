@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.1.RELEASE</version>
+    </parent>
+
+    <!--基本信息-->
+    <description>SpringBoot 多模块构建示例</description>
+    <name>integration</name>
+    <packaging>pom</packaging>
+    <groupId>com.fanqilong</groupId>
+    <artifactId>intergration</artifactId>
+    <version>1.0.0</version>
+
+    <modules>
+        <module>dao</module>
+        <module>pojo</module>
+        <module>app</module>
+        <module>web</module>
+        <module>service</module>
+    </modules>
+
+    <properties>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+    </properties>
+
+    <!--下面两个是版本管理，意识就是说引入这两个之后，他下面的子模块如果引入依赖就不用写版本号了
+    ，他俩给你们做了，自动引入版本号，避免因为引入的版本不兼容而引起的错误-->
+    <!--<dependencyManagement>-->
+        <!--<dependencies>-->
+            <!--&lt;!&ndash; https://mvnrepository.com/artifact/io.spring.platform/platform-bom &ndash;&gt;-->
+            <!--<dependency>-->
+                <!--<groupId>io.spring.platform</groupId>-->
+                <!--<artifactId>platform-bom</artifactId>-->
+                <!--<version>Cairo-RELEASE</version>-->
+                <!--<type>pom</type>-->
+                <!--<scope>import</scope>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.springframework.cloud</groupId>-->
+                <!--<artifactId>spring-cloud-dependencies</artifactId>-->
+                <!--<version>${spring-cloud.version}</version>-->
+                <!--<type>pom</type>-->
+                <!--<scope>import</scope>-->
+            <!--</dependency>-->
+        <!--</dependencies>-->
+    <!--</dependencyManagement>-->
+
+    <!--版本说明：这里统一管理依赖的版本号-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.fanqilong</groupId>
+                <artifactId>web</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>com.fanqilong</groupId>
+                <artifactId>app</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>com.fanqilong</groupId>
+                <artifactId>dao</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fanqilong</groupId>
+                <artifactId>pojo</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fanqilong</groupId>
+                <artifactId>service</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>
